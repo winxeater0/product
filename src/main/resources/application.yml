@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: product-api
+
+  profiles:
+    active: dev
