@@ -6,6 +6,8 @@ import com.example.product.dto.ProductResponse;
 import com.example.product.dto.UpdateProductRequest;
 import org.springframework.stereotype.Component;
 
+import java.math.RoundingMode;
+
 @Component
 public class ProductMapper {
 
@@ -13,7 +15,7 @@ public class ProductMapper {
         return Product.builder()
                 .name(request.name())
                 .description(request.description())
-                .price(request.price())
+                .price(request.price().setScale(2, RoundingMode.HALF_UP))
                 .build();
     }
 
@@ -30,7 +32,7 @@ public class ProductMapper {
     public void updateEntity(Product product, UpdateProductRequest request) {
         product.setName(request.name());
         product.setDescription(request.description());
-        product.setPrice(request.price());
+        product.setPrice(request.price().setScale(2, RoundingMode.HALF_UP));
     }
 }
 

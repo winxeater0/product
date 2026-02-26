@@ -24,7 +24,7 @@ public class Product {
 
     private String description;
 
-    @Column(nullable = false)
+    @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal price;
 
     @Column(name = "created_at", nullable = false, updatable = false)
